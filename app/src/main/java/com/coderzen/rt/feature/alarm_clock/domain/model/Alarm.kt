@@ -2,6 +2,7 @@ package com.coderzen.rt.feature.alarm_clock.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.time.OffsetDateTime
 
 @Entity
 data class Alarm(
@@ -9,7 +10,7 @@ data class Alarm(
     val treatment: String,
     val graphic: String,
     val local: String,
-    val withdraw: Long,
+    val withdraw: OffsetDateTime,
     val status: Boolean,
     @PrimaryKey val id: Int? = null
 )

@@ -1,6 +1,5 @@
 package com.coderzen.rt.feature.alarm_clock.domain.use_case
 
-import androidx.room.Index
 import com.coderzen.rt.feature.alarm_clock.domain.model.Alarm
 import com.coderzen.rt.feature.alarm_clock.domain.repository.AlarmRepository
 import com.coderzen.rt.feature.alarm_clock.domain.util.AlarmOrder
@@ -13,20 +12,22 @@ class GetAlarms(
 ) {
     operator fun invoke(
         alarmOrder: AlarmOrder = AlarmOrder.Withdraw(OrderType.Ascending)
-    ) : Flow<List<Alarm>> {
+    ): Flow<List<Alarm>> {
         return repository.getAll().map { alarms ->
-            when(alarmOrder.orderType) {
+            when (alarmOrder.orderType) {
                 is OrderType.Ascending -> {
-                    when(alarmOrder) {
+                    when (alarmOrder) {
                         is AlarmOrder.PersonName -> alarms.sortedBy { it.personName.lowercase() }
                         is AlarmOrder.Withdraw -> alarms.sortedBy { it.withdraw }
                     }
                 }
+
                 else -> {
-                    when(alarmOrder) {
+                    when (alarmOrder) {
                         is AlarmOrder.PersonName -> alarms.sortedByDescending {
                             it.personName.lowercase()
                         }
+
                         is AlarmOrder.Withdraw -> alarms.sortedByDescending {
                             it.withdraw
                         }

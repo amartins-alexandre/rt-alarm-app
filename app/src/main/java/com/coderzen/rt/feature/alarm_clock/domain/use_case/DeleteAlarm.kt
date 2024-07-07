@@ -6,7 +6,7 @@ import com.coderzen.rt.feature.alarm_clock.domain.repository.AlarmRepository
 class DeleteAlarm(
     private val repository: AlarmRepository
 ) {
-    suspend fun invoke(alarm: Alarm) {
+    suspend operator fun invoke(alarm: Alarm) {
         repository.remove(alarm)
     }
 }
