@@ -15,7 +15,7 @@
         android:theme="@style/Theme.CoderZen"
         tools:targetApi="31">
         <activity
-            android:name=".feature.alarmClock.presentation.MainActivity"
+            android:name=".feature.alarm_clock.presentation.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.CoderZen">

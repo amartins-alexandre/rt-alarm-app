@@ -1,4 +1,4 @@
-package com.coderzen.rt.feature.alarmClock.presentation
+package com.coderzen.rt.feature.alarm_clock.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
